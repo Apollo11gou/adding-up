@@ -30,6 +30,10 @@ rl.on("line", (lineString) => {
   }
 });
 rl.on('close', () =>{
-  //'close' イベントは全ての行を読み込み終わった際に呼び出されます。
-  console.log(prefectureDataMap);
+  //'close' イベントは全ての行を読み込み終わった際に呼び出される。
+  //for-of構文を使用し
+  for (let [key, value] of prefectureDataMap){
+    value.change = value.popu15 / value.popu10;
+  }
+  console.log(prefectureDataMap)
 });
